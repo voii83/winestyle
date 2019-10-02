@@ -57,7 +57,7 @@ CREATE TABLE `payments` (
   `id` int(11) NOT NULL,
   `id_worker` int(11) NOT NULL,
   `payment` float NOT NULL,
-  `data` timestamp NOT NULL
+  `month` enum('1','2','3','4','5','6','7','8','9','10','11','12') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `payments`
@@ -67,6 +67,10 @@ ALTER TABLE `payments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `payments`  
   ADD FOREIGN KEY ( `id_worker` ) REFERENCES `workers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+-- Данные
+INSERT INTO `payments`(`id_worker`, `payment`, `month`)
+SELECT workers.id, workers.pay, MONTH(NOW())
+FROM workers;
   
   
   
