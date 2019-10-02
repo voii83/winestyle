@@ -1,0 +1,23 @@
+{
+    "name": "filippovv/winestyle.local",
+    "description": "Winestyle test task",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Vladimir Filippov",
+            "email": "voiivoii83@gmail.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "components/",
+            "controllers/",
+            "models/"
+        ],
+        "psr-4": {
+            "Services\\": "services",
+            "liw\\": ""
+        }
+    },
+    "require": {}
+}
